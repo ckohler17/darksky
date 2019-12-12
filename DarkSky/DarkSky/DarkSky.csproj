@@ -163,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIKey.cs" />
+    <Compile Include="APITest.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -176,6 +177,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LocationJsonInfo.cs" />
     <Compile Include="Migrations\201912121340049_initialmigration.cs" />
     <Compile Include="Migrations\201912121340049_initialmigration.Designer.cs">
       <DependentUpon>201912121340049_initialmigration.cs</DependentUpon>

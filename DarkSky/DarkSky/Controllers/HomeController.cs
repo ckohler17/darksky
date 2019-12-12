@@ -26,5 +26,9 @@ namespace DarkSky.Controllers
 
             return View();
         }
+        public ActionResult DurationCalculation()
+        {
+            return View();
+        }
     }
 }
