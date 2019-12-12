@@ -27,7 +27,7 @@ namespace DarkSky.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DarkSkyLocations darkSkyLocations = db.DarkSkyLocations.Find(id);
+            DarkSkyLocation darkSkyLocations = db.DarkSkyLocations.Find(id);
             if (darkSkyLocations == null)
             {
                 return HttpNotFound();
@@ -46,7 +46,7 @@ namespace DarkSky.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,StreetAddress,City,State,ZipCode")] DarkSkyLocations darkSkyLocations)
+        public ActionResult Create([Bind(Include = "Id,Name,StreetAddress,City,State,ZipCode")] DarkSkyLocation darkSkyLocations)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace DarkSky.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DarkSkyLocations darkSkyLocations = db.DarkSkyLocations.Find(id);
+            DarkSkyLocation darkSkyLocations = db.DarkSkyLocations.Find(id);
             if (darkSkyLocations == null)
             {
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace DarkSky.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,StreetAddress,City,State,ZipCode")] DarkSkyLocations darkSkyLocations)
+        public ActionResult Edit([Bind(Include = "Id,Name,StreetAddress,City,State,ZipCode")] DarkSkyLocation darkSkyLocations)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace DarkSky.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DarkSkyLocations darkSkyLocations = db.DarkSkyLocations.Find(id);
+            DarkSkyLocation darkSkyLocations = db.DarkSkyLocations.Find(id);
             if (darkSkyLocations == null)
             {
                 return HttpNotFound();
@@ -109,7 +109,7 @@ namespace DarkSky.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DarkSkyLocations darkSkyLocations = db.DarkSkyLocations.Find(id);
+            DarkSkyLocation darkSkyLocations = db.DarkSkyLocations.Find(id);
             db.DarkSkyLocations.Remove(darkSkyLocations);
             db.SaveChanges();
             return RedirectToAction("Index");

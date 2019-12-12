@@ -10,107 +10,107 @@ using DarkSky.Models;
 
 namespace DarkSky.Controllers
 {
-    public class UsersController : Controller
+    public class ObserversController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Users
+        // GET: Observers
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            return View(db.Observers.ToList());
         }
 
-        // GET: Users/Details/5
+        // GET: Observers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users users = db.Users.Find(id);
-            if (users == null)
+            Observer observer = db.Observers.Find(id);
+            if (observer == null)
             {
                 return HttpNotFound();
             }
-            return View(users);
+            return View(observer);
         }
 
-        // GET: Users/Create
+        // GET: Observers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: Observers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,StreetAddress,City,State,ZipCode")] Users users)
+        public ActionResult Create([Bind(Include = "UserId,FirstName,LastName,StreetAddress,City,State,ZipCode")] Observer observer)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(users);
+                db.Observers.Add(observer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(users);
+            return View(observer);
         }
 
-        // GET: Users/Edit/5
+        // GET: Observers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users users = db.Users.Find(id);
-            if (users == null)
+            Observer observer = db.Observers.Find(id);
+            if (observer == null)
             {
                 return HttpNotFound();
             }
-            return View(users);
+            return View(observer);
         }
 
-        // POST: Users/Edit/5
+        // POST: Observers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,StreetAddress,City,State,ZipCode")] Users users)
+        public ActionResult Edit([Bind(Include = "UserId,FirstName,LastName,StreetAddress,City,State,ZipCode")] Observer observer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(users).State = EntityState.Modified;
+                db.Entry(observer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(users);
+            return View(observer);
         }
 
-        // GET: Users/Delete/5
+        // GET: Observers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users users = db.Users.Find(id);
-            if (users == null)
+            Observer observer = db.Observers.Find(id);
+            if (observer == null)
             {
                 return HttpNotFound();
             }
-            return View(users);
+            return View(observer);
         }
 
-        // POST: Users/Delete/5
+        // POST: Observers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Users users = db.Users.Find(id);
-            db.Users.Remove(users);
+            Observer observer = db.Observers.Find(id);
+            db.Observers.Remove(observer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

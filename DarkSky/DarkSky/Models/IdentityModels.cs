@@ -20,6 +20,12 @@ namespace DarkSky.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<DarkSkyLocation> DarkSkyLocations { get; set; }
+        public DbSet<Observer> Observers { get; set; }
+        public DbSet<RatingsCheckIn> RatingsCheckIns { get; set; }
+        
+        
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -30,6 +36,5 @@ namespace DarkSky.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<DarkSky.Models.DarkSkyLocations> DarkSkyLocations { get; set; }
     }
 }

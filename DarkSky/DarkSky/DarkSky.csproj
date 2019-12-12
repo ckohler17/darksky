@@ -171,7 +171,7 @@
     <Compile Include="Controllers\DarkSkyLocationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\ObserversController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,13 +179,17 @@
     <Compile Include="Migrations\201912121340049_initialmigration.Designer.cs">
       <DependentUpon>201912121340049_initialmigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912121518476_foreignkeys.cs" />
+    <Compile Include="Migrations\201912121518476_foreignkeys.Designer.cs">
+      <DependentUpon>201912121518476_foreignkeys.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\DarkSkyLocations.cs" />
+    <Compile Include="Models\DarkSkyLocation.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RatingsCheckIn.cs" />
-    <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\Observer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -255,6 +259,11 @@
     <Content Include="Views\DarkSkyLocations\Details.cshtml" />
     <Content Include="Views\DarkSkyLocations\Edit.cshtml" />
     <Content Include="Views\DarkSkyLocations\Index.cshtml" />
+    <Content Include="Views\Observers\Create.cshtml" />
+    <Content Include="Views\Observers\Delete.cshtml" />
+    <Content Include="Views\Observers\Details.cshtml" />
+    <Content Include="Views\Observers\Edit.cshtml" />
+    <Content Include="Views\Observers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -275,6 +284,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201912121340049_initialmigration.resx">
       <DependentUpon>201912121340049_initialmigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912121518476_foreignkeys.resx">
+      <DependentUpon>201912121518476_foreignkeys.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

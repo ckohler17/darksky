@@ -6,13 +6,12 @@ using System.Web;
 
 namespace DarkSky.Models
 {
-    public class Users
+    public class DarkSkyLocation
     {
-        public int Id { get; set; }
-        [Display(Name = "First Name")]        
-        public string FirstName { get; set; }
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
+        [Key]
+        public int LocationId { get; set; }
+        [Display(Name = "Name")]
+        public string Name { get; set; }
         [Display(Name = "Street Address")]
         public string StreetAddress { get; set; }
         [Display(Name = "City")]
@@ -21,7 +20,7 @@ namespace DarkSky.Models
         public string State { get; set; }
         [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
-
-
+        [Display(Name = "Average Rating")]
+        public double AverageRating { get; set; }
     }
 }
