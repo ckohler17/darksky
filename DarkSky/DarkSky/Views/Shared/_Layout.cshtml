@@ -40,5 +40,281 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 39.8283, lng: -98.5795 },
+                zoom: 4
+            });
+            var centralIdahoDarkSkyReserve = new google.maps.Marker({
+                position: { lat: 44.000, lng: -114.833333 },
+                map: map
+            });
+            var canyonlandsNationalPark = new google.maps.Marker({
+                position: { lat: 38.3269, lng: -109.8783 },
+                map: map
+            });
+            var drippingSprings = new google.maps.Marker({
+                position: { lat: 30.1902, lng: -98.0867 },
+                map: map
+            });
+            var deathValleyNationalPark = new google.maps.Marker({
+                position: { lat: 36.5323, lng: -116.9325 },
+                map: map
+            });
+            var naturalBridgesNationalMonument = new google.maps.Marker({
+                position: { lat: 37.6041, lng: -110.0052 },
+                map: map
+            });
+            var cherrySpringsStatePark = new google.maps.Marker({
+                position: { lat: 41.6632, lng: -77.8234 },
+                map: map
+            });
+            var borregoSprings = new google.maps.Marker({
+                position: { lat: 33.2559, lng: -116.3750 },
+                map: map
+            });
+            var claytonLakeStatePark = new google.maps.Marker({
+                position: { lat: 36.5763, lng: -103.3055 },
+                map: map
+            });
+            var geaugaObservatoryPark = new google.maps.Marker({
+                position: { lat: 41.5849, lng: -81.0806 },
+                map: map
+            });
+            var headlands = new google.maps.Marker({
+                position: { lat: 37.8233, lng: -122.5037 },
+                map: map
+            });
+            var homerGlen = new google.maps.Marker({
+                position: { lat: 41.6000, lng: -87.9381 },
+                map: map
+            });
+            var bigBendNationalPark = new google.maps.Marker({
+                position: { lat: 29.1275, lng: -103.2425 },
+                map: map
+            });
+            var chacoCultureNationalHistoricalPark = new google.maps.Marker({
+                position: { lat: 36.0530, lng: -107.9559 },
+                map: map
+            });
+            var beverlyShores = new google.maps.Marker({
+                position: { lat: 41.6925, lng: -86.9775 },
+                map: map
+            });
+            var copperBreaksStatePark = new google.maps.Marker({
+                position: { lat: 34.1121, lng: -99.7516 },
+                map: map
+            });
+            var enchantedRockStateNaturalArea = new google.maps.Marker({
+                position: { lat: 34.1121, lng: -99.7516 },
+                map: map
+            });
+            var grandCanyonParashantNationalMonument = new google.maps.Marker({
+                position: { lat: 36.4018, lng: -113.6989 },
+                map: map
+            });
+            var hovenweepNationalMonument = new google.maps.Marker({
+                position: { lat: 37.3838, lng: -109.0726 },
+                map: map
+            });
+            var maylandEarthSkyPark = new google.maps.Marker({
+                position: { lat: 35.9302, lng: -82.1810 },
+                map: map
+            });
+            var oracleStatePark = new google.maps.Marker({
+                position: { lat: 32.6093, lng: -110.7336 },
+                map: map
+            });
+            var sedona = new google.maps.Marker({
+                position: { lat: 34.8697, lng: -111.7610 },
+                map: map
+            });
+            var blackCanyonGunnisonNationalPark = new google.maps.Marker({
+                position: { lat: 38.5754, lng: -107.7416 },
+                map: map
+            });
+            var capitolReefNationalPark = new google.maps.Marker({
+                position: { lat: 38.3670, lng: -111.2615 },
+                map: map
+            });
+            var horseshoeBay = new google.maps.Marker({
+                position: { lat: 30.5422, lng: -98.3883 },
+                map: map
+            });
+            var pickettCccMemorialStatePark = new google.maps.Marker({
+                position: { lat: 36.5574, lng: -84.7934 },
+                map: map
+            });
+            var stauntonRiverStatePark = new google.maps.Marker({
+                position: { lat: 36.6981, lng: -78.6768 },
+                map: map
+            });
+            var thunderMountainPootseevNightsky = new google.maps.Marker({
+                position: { lat: 34.872004, lng: -111.812305 },
+                map: map
+            });
+            var uBaruCampRetreatCenter = new google.maps.Marker({
+                position: { lat: 30.1885, lng: -99.2744 },
+                map: map
+            });
+            var weberCountyNorthForkPark = new google.maps.Marker({
+                position: { lat: 41.3710, lng: -111.9073 },
+                map: map
+            });
+            var westcliffeSilverCliff = new google.maps.Marker({
+                position: { lat: 38.134722, lng: -105.4658353 },
+                map: map
+            });
+            var bigParkVillageOakCreek = new google.maps.Marker({
+                position: { lat: 34.7803, lng: -111.7627 },
+                map: map
+            });
+            var capulinVolcanoNationalMonument = new google.maps.Marker({
+                position: { lat: 36.7811, lng: -103.9695 },
+                map: map
+            });
+            var cosmicCampground = new google.maps.Marker({
+                position: { lat: 33.4793, lng: -108.9226 },
+                map: map
+            });
+            var deadHorsePointStatePark = new google.maps.Marker({
+                position: { lat: 38.4748, lng: -109.7406 },
+                map: map
+            });
+            var flagstaffAreaNationalMonuments = new google.maps.Marker({
+                position: { lat: 35.2390, lng: -111.5707 },
+                map: map
+            });
+            var goblinValleyStatePark = new google.maps.Marker({
+                position: { lat: 38.5737, lng: -110.7071 },
+                map: map
+            });
+            var grandCanyonNationalPark = new google.maps.Marker({
+                position: { lat: 38.5737, lng: -110.7071 },
+                map: map
+            });
+            var greatBasinNationalPark = new google.maps.Marker({
+                position: { lat: 38.9833, lng: -114.3000 },
+                map: map
+            });
+            var kissimmeePrairiePreserveStatePark = new google.maps.Marker({
+                position: { lat: 27.5841, lng: -81.0453 },
+                map: map
+            });
+            var salinasPuebloMissionsNationalMonument = new google.maps.Marker({
+                position: { lat: 34.2596, lng: -106.0933 },
+                map: map
+            });
+            var stephenFosterStatePark = new google.maps.Marker({
+                position: { lat: 30.8231, lng: -82.3644 },
+                map: map
+            });
+            var antelopeIslandStatePark = new google.maps.Marker({
+                position: { lat: 40.9581, lng: -112.2146 },
+                map: map
+            });
+            var bigBendRanchStatePark = new google.maps.Marker({
+                position: { lat: 29.4704, lng: -103.9578 },
+                map: map
+            });
+            var cedarBreaksNationalMonument = new google.maps.Marker({
+                position: { lat: 37.6360, lng: -112.8450 },
+                map: map
+            });
+            var centralIdaho = new google.maps.Marker({
+                position: { lat: 42.6349, lng: -111.8116 },
+                map: map
+            });
+            var cratersMoonNationalMonument = new google.maps.Marker({
+                position: { lat: 43.2058, lng: -113.5002 },
+                map: map
+            });
+            var joshuaTreeNationalPark = new google.maps.Marker({
+                position: { lat: 33.8734, lng: -115.9010 },
+                map: map
+            });
+            var kartchnerCavernsStatePark = new google.maps.Marker({
+                position: { lat: 31.8366, lng: -110.3489 },
+                map: map
+            });
+            var ketchum = new google.maps.Marker({
+                position: { lat: 43.6807, lng: -114.3637 },
+                map: map
+            });
+            var newportStatePark = new google.maps.Marker({
+                position: { lat: 45.2347, lng: -86.9981 },
+                map: map
+            });
+            var newportStatePark = new google.maps.Marker({
+                position: { lat: 45.2347, lng: -86.9981 },
+                map: map
+            });
+            var rappahannockCountyPark = new google.maps.Marker({
+                position: { lat: 38.710353, lng: -78.152620 },
+                map: map
+            });
+            var norwood = new google.maps.Marker({
+                position: { lat: 38.132357, lng: -108.292568 },
+                map: map
+            });
+            var devilsRiverStateNaturalAreaDelNorteUnit = new google.maps.Marker({
+                position: { lat: 29.939975, lng: -100.969869 },
+                map: map
+            });
+            var wimberleyValley = new google.maps.Marker({
+                position: { lat: 30.030948, lng: -98.082546 },
+                map: map
+            });
+            var tumacacoriNationalHistoricalPark = new google.maps.Marker({
+                position: { lat: 31.568057, lng: -111.052455 },
+                map: map
+            });
+            var torrey = new google.maps.Marker({
+                position: { lat: 38.303599, lng: -111.421599 },
+                map: map
+            });
+            var steinakerStatePark = new google.maps.Marker({
+                position: { lat: 40.516639, lng: -109.539105 },
+                map: map
+            });
+            var rainbowBridgeNationalMonument = new google.maps.Marker({
+                position: { lat: 37.077377, lng: -110.964371 },
+                map: map
+            });
+            var petrifiedForestNationalPark = new google.maps.Marker({
+                position: { lat: 35.042628, lng: -109.797761 },
+                map: map
+            });
+            var middleForkRiverForestPreserve = new google.maps.Marker({
+                position: { lat: 40.382961, lng: -87.951134 },
+                map: map
+            });
+            var fountainHills = new google.maps.Marker({
+                position: { lat: 33.605549, lng: -111.752448 },
+                map: map
+            });
+            var campVerde = new google.maps.Marker({
+                position: { lat: 34.568989, lng: -111.874234 },
+                map: map
+            });
+            var anzaBorregoDesertStatePark = new google.maps.Marker({
+                position: { lat: 33.100070, lng: -116.301359 },
+                map: map
+            });
+            var southLlanoRiverStatePark = new google.maps.Marker({
+                position: { lat: 30.438814, lng: -99.812858 },
+                map: map
+            });
+            var obedWildandScenicRiver = new google.maps.Marker({
+                position: { lat: 36.106395, lng: -84.598796 },
+                map: map
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=@APIKey.GoogleMapsKey&callback=initMap" async defer></script>
+
 </body>
 </html>

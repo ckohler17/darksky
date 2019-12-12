@@ -21,6 +21,6 @@ namespace DarkSky.Models
         [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
         [Display(Name = "Average Rating")]
-        public double AverageRating { get; set; }
+        public double? AverageRating { get; set; }
     }
 }

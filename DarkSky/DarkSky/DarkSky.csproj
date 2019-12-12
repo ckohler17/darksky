@@ -162,6 +162,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APIKey.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -182,6 +183,10 @@
     <Compile Include="Migrations\201912121518476_foreignkeys.cs" />
     <Compile Include="Migrations\201912121518476_foreignkeys.Designer.cs">
       <DependentUpon>201912121518476_foreignkeys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912121656469_test.cs" />
+    <Compile Include="Migrations\201912121656469_test.Designer.cs">
+      <DependentUpon>201912121656469_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -287,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912121518476_foreignkeys.resx">
       <DependentUpon>201912121518476_foreignkeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912121656469_test.resx">
+      <DependentUpon>201912121656469_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
