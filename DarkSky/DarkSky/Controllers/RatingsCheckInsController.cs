@@ -21,6 +21,12 @@ namespace DarkSky.Controllers
             return View(ratingsCheckIns.ToList());
         }
 
+        public ActionResult Rating()
+        {
+            var ratingsCheckIns = db.RatingsCheckIns.Include(r => r.DarkSkyLocation).Include(r => r.Observer);
+            return View();
+        }
+
         // GET: RatingsCheckIns/Details/5
         public ActionResult Details(int? id)
         {
