@@ -51,6 +51,12 @@
 <h4>DarkSkyLocations</h4>
 <hr />
 <div class="col-sm-6">
+=======
+<h2>Directions</h2>
+
+<div>
+    <h4>Dark Sky Location</h4>
+    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -160,3 +166,9 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC95EG4riAADzoArZPhKYRDGjz7Hz7RH3w&callback=directionMap">
     </script>
+=======
+<p>
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Give A Rating", "Rating", "RatingsCheckIn") 
+</p>
+>>>>>>> 4af94b60b3ad8a94d07db503e1a37ecf7bcb1c0f

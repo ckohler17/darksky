@@ -48,8 +48,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Locations", "Index", "DarkSkyLocations")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -67,8 +66,14 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
-    <script>
+    @*<script>
         var map;
+        //function geoCodeTest() {
+        //    map = new google.places.Map(document.getElementById('streetAddress'), {
+        //        center: { lat: 43.034031, lng: -87.911844 }, 
+        //        zoom: 6
+        //    });
+        //}
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 39.8283, lng: -98.5795 },
@@ -340,6 +345,7 @@
             });
         }
     </script>
+<<<<<<< HEAD
     <script src="https://maps.googleapis.com/maps/api/js?key=@APIKey.GoogleMapsKey&callback=initMap" async defer></script>
 
     <script>
@@ -378,5 +384,8 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5euXUd3fU36gSpFxDvvQhlFmwRVRLGzM&callback=initMap">
     </script>
+=======
+    <script src="https://maps.googleapis.com/maps/api/js?key=@APIKey.GoogleMapsKey&callback=initMap" async defer></script>*@
+>>>>>>> 4af94b60b3ad8a94d07db503e1a37ecf7bcb1c0f
 </body>
 </html>

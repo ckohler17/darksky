@@ -1,0 +1,62 @@
+﻿@model DarkSky.Models.RatingsCheckIn
+
+@{
+    ViewBag.Title = "Rating";
+}
+
+<h2>Rating</h2>
+
+<div>
+    <h4>RatingsCheckIn</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DarkSkyLocation.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DarkSkyLocation.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observer.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observer.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckIn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckIn)
+        </dd>
+
+    </dl>
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Rating, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Rate" class="btn btn-default" />
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

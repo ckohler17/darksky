@@ -173,6 +173,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ObserversController.cs" />
+    <Compile Include="Controllers\RatingsCheckInsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -184,21 +185,12 @@
     <Compile Include="Migrations\201912121518476_foreignkeys.Designer.cs">
       <DependentUpon>201912121518476_foreignkeys.cs</DependentUpon>
     </Compile>
-<!--<<<<<<< HEAD
-    <Compile Include="Migrations\201912121648309_seeddatabase.cs" />
-    <Compile Include="Migrations\201912121648309_seeddatabase.Designer.cs">
-      <DependentUpon>201912121648309_seeddatabase.cs</DependentUpon>
-=======
-    <Compile Include="Migrations\201912121656469_test.cs" />
-    <Compile Include="Migrations\201912121656469_test.Designer.cs">
-      <DependentUpon>201912121656469_test.cs</DependentUpon>
->>>>>>> e38a783fe7ae33b70c49c72f40f5a9b381ecbd31-->
-    <!--</Compile>-->
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DarkSkyLocation.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ParentLocationRating.cs" />
     <Compile Include="Models\RatingsCheckIn.cs" />
     <Compile Include="Models\Observer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -275,6 +267,12 @@
     <Content Include="Views\Observers\Details.cshtml" />
     <Content Include="Views\Observers\Edit.cshtml" />
     <Content Include="Views\Observers\Index.cshtml" />
+    <Content Include="Views\RatingsCheckIns\Rating.cshtml" />
+    <Content Include="Views\RatingsCheckIns\Create.cshtml" />
+    <Content Include="Views\RatingsCheckIns\Delete.cshtml" />
+    <Content Include="Views\RatingsCheckIns\Details.cshtml" />
+    <Content Include="Views\RatingsCheckIns\Edit.cshtml" />
+    <Content Include="Views\RatingsCheckIns\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -299,14 +297,6 @@
     <EmbeddedResource Include="Migrations\201912121518476_foreignkeys.resx">
       <DependentUpon>201912121518476_foreignkeys.cs</DependentUpon>
     </EmbeddedResource>
-<!--<<<<<<< HEAD
-    <EmbeddedResource Include="Migrations\201912121648309_seeddatabase.resx">
-      <DependentUpon>201912121648309_seeddatabase.cs</DependentUpon>
-=======
-    <EmbeddedResource Include="Migrations\201912121656469_test.resx">
-      <DependentUpon>201912121656469_test.cs</DependentUpon>
->>>>>>> e38a783fe7ae33b70c49c72f40f5a9b381ecbd31
-    </EmbeddedResource>-->
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
