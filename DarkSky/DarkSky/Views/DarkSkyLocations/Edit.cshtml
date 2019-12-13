@@ -1,4 +1,4 @@
-﻿@model DarkSky.Models.DarkSkyLocations
+﻿@model DarkSky.Models.DarkSkyLocation
 
 @{
     ViewBag.Title = "Edit";
@@ -15,7 +15,7 @@
         <h4>DarkSkyLocations</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.LocationId)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })

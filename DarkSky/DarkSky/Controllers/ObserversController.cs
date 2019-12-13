@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DarkSky.Models;
+using Microsoft.AspNet.Identity;
 
 namespace DarkSky.Controllers
 {
@@ -46,7 +47,7 @@ namespace DarkSky.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId,FirstName,LastName,StreetAddress,City,State,ZipCode")] Observer observer)
+        public ActionResult Create([Bind(Include = "FirstName,LastName,StreetAddress,City,State,ZipCode")] Observer observer)
         {
             if (ModelState.IsValid)
             {
