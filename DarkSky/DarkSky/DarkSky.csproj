@@ -184,9 +184,15 @@
     <Compile Include="Migrations\201912121518476_foreignkeys.Designer.cs">
       <DependentUpon>201912121518476_foreignkeys.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+    <Compile Include="Migrations\201912121648309_seeddatabase.cs" />
+    <Compile Include="Migrations\201912121648309_seeddatabase.Designer.cs">
+      <DependentUpon>201912121648309_seeddatabase.cs</DependentUpon>
+=======
     <Compile Include="Migrations\201912121656469_test.cs" />
     <Compile Include="Migrations\201912121656469_test.Designer.cs">
       <DependentUpon>201912121656469_test.cs</DependentUpon>
+>>>>>>> e38a783fe7ae33b70c49c72f40f5a9b381ecbd31
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -293,8 +299,13 @@
     <EmbeddedResource Include="Migrations\201912121518476_foreignkeys.resx">
       <DependentUpon>201912121518476_foreignkeys.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
+    <EmbeddedResource Include="Migrations\201912121648309_seeddatabase.resx">
+      <DependentUpon>201912121648309_seeddatabase.cs</DependentUpon>
+=======
     <EmbeddedResource Include="Migrations\201912121656469_test.resx">
       <DependentUpon>201912121656469_test.cs</DependentUpon>
+>>>>>>> e38a783fe7ae33b70c49c72f40f5a9b381ecbd31
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
