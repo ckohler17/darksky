@@ -177,6 +177,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LatLongJsonInfo.cs" />
     <Compile Include="LocationJsonInfo.cs" />
     <Compile Include="Migrations\201912121340049_initialmigration.cs" />
     <Compile Include="Migrations\201912121340049_initialmigration.Designer.cs">
@@ -194,6 +195,18 @@
     <Compile Include="Migrations\201912121659411_seededDB.Designer.cs">
       <DependentUpon>201912121659411_seededDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912131307230_addedLatLngToDarkSkyModel.cs" />
+    <Compile Include="Migrations\201912131307230_addedLatLngToDarkSkyModel.Designer.cs">
+      <DependentUpon>201912131307230_addedLatLngToDarkSkyModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912131310189_addedDisplayNameLatLong.cs" />
+    <Compile Include="Migrations\201912131310189_addedDisplayNameLatLong.Designer.cs">
+      <DependentUpon>201912131310189_addedDisplayNameLatLong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912131655123_splitUpStreetAddressProperties.cs" />
+    <Compile Include="Migrations\201912131655123_splitUpStreetAddressProperties.Designer.cs">
+      <DependentUpon>201912131655123_splitUpStreetAddressProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DarkSkyLocation.cs" />
@@ -203,6 +216,7 @@
     <Compile Include="Models\Observer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="URLVariables.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -304,6 +318,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912121659411_seededDB.resx">
       <DependentUpon>201912121659411_seededDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912131307230_addedLatLngToDarkSkyModel.resx">
+      <DependentUpon>201912131307230_addedLatLngToDarkSkyModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912131310189_addedDisplayNameLatLong.resx">
+      <DependentUpon>201912131310189_addedDisplayNameLatLong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912131655123_splitUpStreetAddressProperties.resx">
+      <DependentUpon>201912131655123_splitUpStreetAddressProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

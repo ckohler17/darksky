@@ -14,8 +14,12 @@ namespace DarkSky.Models
         public string FirstName { get; set; }
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
-        [Display(Name = "Street Address")]
-        public string StreetAddress { get; set; }
+        [Display(Name = "Street Number")]
+        public string StreetNumber { get; set; }
+        [Display(Name = "Street Name")]
+        public string StreetName { get; set; }
+        [Display(Name = "Street Suffix: St, Dr, Ln, etc.")]
+        public string StreetSuffix { get; set; }
         [Display(Name = "City")]
         public string City { get; set; }
         [Display(Name = "State")]

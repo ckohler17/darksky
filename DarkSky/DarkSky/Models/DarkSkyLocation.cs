@@ -20,6 +20,9 @@ namespace DarkSky.Models
         public string State { get; set; }
         [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
+        [Display(Name = "LatLong")]
+        public string LatLong { get; set; }
+
         [Display(Name = "Average Rating")]
         public double? AverageRating { get; set; }
     }
