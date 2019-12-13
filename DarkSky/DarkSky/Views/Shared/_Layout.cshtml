@@ -22,8 +22,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Locations", "Index", "DarkSkyLocations")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -41,7 +40,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
-    <script>
+    @*<script>
         var map;
         //function geoCodeTest() {
         //    map = new google.places.Map(document.getElementById('streetAddress'), {
@@ -320,6 +319,6 @@
             });
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=@APIKey.GoogleMapsKey&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=@APIKey.GoogleMapsKey&callback=initMap" async defer></script>*@
 </body>
 </html>
