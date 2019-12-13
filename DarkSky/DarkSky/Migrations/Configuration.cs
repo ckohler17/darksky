@@ -21,6 +21,10 @@ namespace DarkSky.Migrations
             new Models.DarkSkyLocation { Name = "Headlands", StreetAddress = "15675 Headlands Rd", City = "Mackinaw City", State = "MI", ZipCode = "49701", AverageRating = null },
             new Models.DarkSkyLocation { Name = "Beverly Shores", StreetAddress = "500 S Broadway", City = "Beverly Shores", State = "IN", ZipCode = "46301", AverageRating = null }
             );
+<<<<<<< HEAD
+=======
+            //  This method will be called after migrating to the latest version.
+>>>>>>> e38a783fe7ae33b70c49c72f40f5a9b381ecbd31
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
