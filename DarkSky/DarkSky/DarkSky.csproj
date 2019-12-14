@@ -207,6 +207,14 @@
     <Compile Include="Migrations\201912131655123_splitUpStreetAddressProperties.Designer.cs">
       <DependentUpon>201912131655123_splitUpStreetAddressProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912132028290_addedlatlong.cs" />
+    <Compile Include="Migrations\201912132028290_addedlatlong.Designer.cs">
+      <DependentUpon>201912132028290_addedlatlong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912141511006_changedObserver.cs" />
+    <Compile Include="Migrations\201912141511006_changedObserver.Designer.cs">
+      <DependentUpon>201912141511006_changedObserver.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DarkSkyLocation.cs" />
@@ -327,6 +335,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912131655123_splitUpStreetAddressProperties.resx">
       <DependentUpon>201912131655123_splitUpStreetAddressProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912132028290_addedlatlong.resx">
+      <DependentUpon>201912132028290_addedlatlong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912141511006_changedObserver.resx">
+      <DependentUpon>201912141511006_changedObserver.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

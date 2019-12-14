@@ -11,19 +11,20 @@ namespace DarkSky
 {
     public class APITest
     {
-        public string CreateAddress()
-        {
-           //have to somehow connect to the model to be able to access these properties
-            StringBuilder addressString = new StringBuilder();
-            addressString.Append(streetNumber + "+" + streetName + "+" + streetSuffix + ",+" + city + "+" + state + "+" + zip);
-            string concatString = addressString.ToString();
-            return concatString;
-        }
+        //public string CreateAddress()
+        //{
+        //    //have to somehow connect to the model to be able to access these properties
+        //    StringBuilder addressString = new StringBuilder();
+        //    addressString.Append(streetNumber + "+" + streetName + "+" + streetSuffix + ",+" + city + "+" + state + "+" + zip);
+        //    string concatString = addressString.ToString();
+        //    return concatString;
+        //}
         public async Task GetDuration()
         {
             //query for user's street address, city, state then convert to lat/long, store in a variable
             var latlong = await GetLatLong();
             var key = URLVariables.DirectionsKey;
+
             string url = $"https://maps.googleapis.com/maps/api/directions/json?origin={latlong}&destination={URLVariables.Destination}&key={key}";
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(url);
@@ -37,6 +38,7 @@ namespace DarkSky
         public async Task<string> GetLatLong()
         {
             //query for user's street address, city, state then convert to y
+           
             var key = URLVariables.GeoKey;
             string url = $"https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key={key}";
             HttpClient client = new HttpClient();
@@ -51,6 +53,7 @@ namespace DarkSky
                 StringBuilder latLongString = new StringBuilder();
                 latLongString.Append(lat + "," + lng);
                 string newString = latLongString.ToString();
+                //observer.latlong = newString;
                 return newString;
             }
             else

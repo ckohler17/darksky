@@ -4,9 +4,15 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using DarkSky.Models;
+using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 
 namespace DarkSky.Controllers
 {
@@ -14,6 +20,26 @@ namespace DarkSky.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public async Task GetLatLong(Observer observer)
+        {
+            string address = (observer.StreetAddress + observer.City + observer.State);
+            var key = URLVariables.GeoKey;
+            string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={key}";
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(url);
+            string jsonresult = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                LatLongJsonInfo latLongJsonInfo = JsonConvert.DeserializeObject<LatLongJsonInfo>(jsonresult);
+                var latlong = latLongJsonInfo.results[0].geometry.location;
+                string lat = latlong.lat.ToString();
+                string lng = latlong.lng.ToString();
+                StringBuilder latLongString = new StringBuilder();
+                latLongString.Append(lat + "," + lng);
+                string newString = latLongString.ToString();
+                observer.ObserverLatLong = newString;
+            }
+        }
         // GET: Observers
         public ActionResult Index()
         {
@@ -46,15 +72,15 @@ namespace DarkSky.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId,FirstName,LastName,StreetAddress,City,State,ZipCode")] Observer observer)
+        public async Task<ActionResult> Create(Observer observer)
         {
             if (ModelState.IsValid)
             {
+                await GetLatLong(observer);
                 db.Observers.Add(observer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(observer);
         }
 
@@ -78,7 +104,7 @@ namespace DarkSky.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,FirstName,LastName,StreetAddress,City,State,ZipCode")] Observer observer)
+        public ActionResult Edit(Observer observer)
         {
             if (ModelState.IsValid)
             {

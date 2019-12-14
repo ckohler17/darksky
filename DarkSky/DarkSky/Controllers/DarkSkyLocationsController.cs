@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using DarkSky.Models;
@@ -78,7 +79,7 @@ namespace DarkSky.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,StreetAddress,City,State,ZipCode")] DarkSkyLocation darkSkyLocations)
+        public ActionResult Edit(DarkSkyLocation darkSkyLocations)
         {
             if (ModelState.IsValid)
             {
