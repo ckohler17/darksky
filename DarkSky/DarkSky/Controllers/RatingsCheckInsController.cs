@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DarkSky.Models;
+using Microsoft.AspNet.Identity;
 
 namespace DarkSky.Controllers
 {
@@ -17,15 +18,11 @@ namespace DarkSky.Controllers
         // GET: RatingsCheckIns
         public ActionResult Index()
         {
-            var ratingsCheckIns = db.RatingsCheckIns.Include(r => r.DarkSkyLocation).Include(r => r.Observer);
-            return View(ratingsCheckIns.ToList());
-        }
-
-        public ActionResult Rating()
-        {
-            var ratingsCheckIns = db.RatingsCheckIns.Include(r => r.DarkSkyLocation).Include(r => r.Observer);
+            var ratings = db.RatingsCheckIns.Include(r => r.DarkSkyLocation).Include(r => r.Observer);
             return View();
         }
+
+
 
         // GET: RatingsCheckIns/Details/5
         public ActionResult Details(int? id)
@@ -42,11 +39,9 @@ namespace DarkSky.Controllers
             return View(ratingsCheckIn);
         }
 
-        // GET: RatingsCheckIns/Create
+        //GET: RatingsCheckIns/Create
         public ActionResult Create()
-        {
-            ViewBag.LocationId = new SelectList(db.DarkSkyLocations, "LocationId", "Name");
-            ViewBag.UserId = new SelectList(db.Observers, "UserId", "FirstName");
+        {            
             return View();
         }
 
@@ -55,19 +50,19 @@ namespace DarkSky.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RatingsId,UserId,LocationId,Rating,CheckIn")] RatingsCheckIn ratingsCheckIn)
-        {
-            if (ModelState.IsValid)
-            {
-                db.RatingsCheckIns.Add(ratingsCheckIn);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.LocationId = new SelectList(db.DarkSkyLocations, "LocationId", "Name", ratingsCheckIn.LocationId);
-            ViewBag.UserId = new SelectList(db.Observers, "UserId", "FirstName", ratingsCheckIn.UserId);
-            return View(ratingsCheckIn);
-        }
+        //public ActionResult Create([Bind(Include = "Rating")] RatingsCheckIn ratingsCheckIn, Observer observer, DarkSkyLocation darkSkyLocation)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        RatingsCheckIn ratings = new RatingsCheckIn();
+        //        var currentuser = User.Identity.GetUserId();                
+        //        ratings = db.Observers.Where(o => o.ApplicationId == currentuser && db.DarkSkyLocations.Where(l => l.LocationId == darkSkyLocation.LocationId).FirstOrDefault());
+        //        db.RatingsCheckIns.Add(ratings);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(ratingsCheckIn);
+        //}
 
         // GET: RatingsCheckIns/Edit/5
         public ActionResult Edit(int? id)

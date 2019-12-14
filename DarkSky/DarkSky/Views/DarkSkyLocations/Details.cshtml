@@ -52,10 +52,11 @@
 <hr />
 <div class="col-sm-6">
 
-<h2>Directions</h2>
+    <h2>Directions</h2>
 
 
     <h4>Dark Sky Location</h4>
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -97,6 +98,13 @@
         <dd>
             @Html.DisplayFor(model => model.ZipCode)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AverageRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AverageRating)
+        </dd>
 
     </dl>
 </div>
@@ -110,10 +118,10 @@
         </div>
     </div>
 </div>
-    <p>
+    @*<p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.LocationId }) |
         @Html.ActionLink("Back to List", "Index")
-    </p>
+    </p>*@
 
     @*<script>
         function directionMap() {
@@ -169,5 +177,5 @@
 
 <p>
     @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Give A Rating", "Rating", "RatingsCheckIn") 
+    @Html.ActionLink("Give A Rating", "Create", "RatingsCheckIns") 
 </p>

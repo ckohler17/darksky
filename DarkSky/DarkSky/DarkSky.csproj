@@ -174,6 +174,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ObserversController.cs" />
     <Compile Include="Controllers\RatingsCheckInsController.cs" />
+    <Compile Include="Geo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -185,12 +186,27 @@
     <Compile Include="Migrations\201912121518476_foreignkeys.Designer.cs">
       <DependentUpon>201912121518476_foreignkeys.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912132158415_madedatetimenullable.cs" />
+    <Compile Include="Migrations\201912132158415_madedatetimenullable.Designer.cs">
+      <DependentUpon>201912132158415_madedatetimenullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912132231269_addedforeignkeytoapplicatonuserid.cs" />
+    <Compile Include="Migrations\201912132231269_addedforeignkeytoapplicatonuserid.Designer.cs">
+      <DependentUpon>201912132231269_addedforeignkeytoapplicatonuserid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912132302142_addedlatlngproperty.cs" />
+    <Compile Include="Migrations\201912132302142_addedlatlngproperty.Designer.cs">
+      <DependentUpon>201912132302142_addedlatlngproperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912140204598_updatedforeignkey.cs" />
+    <Compile Include="Migrations\201912140204598_updatedforeignkey.Designer.cs">
+      <DependentUpon>201912140204598_updatedforeignkey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DarkSkyLocation.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\ParentLocationRating.cs" />
     <Compile Include="Models\RatingsCheckIn.cs" />
     <Compile Include="Models\Observer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -273,6 +289,7 @@
     <Content Include="Views\RatingsCheckIns\Details.cshtml" />
     <Content Include="Views\RatingsCheckIns\Edit.cshtml" />
     <Content Include="Views\RatingsCheckIns\Index.cshtml" />
+    <Content Include="Views\DarkSkyLocations\Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -296,6 +313,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912121518476_foreignkeys.resx">
       <DependentUpon>201912121518476_foreignkeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912132158415_madedatetimenullable.resx">
+      <DependentUpon>201912132158415_madedatetimenullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912132231269_addedforeignkeytoapplicatonuserid.resx">
+      <DependentUpon>201912132231269_addedforeignkeytoapplicatonuserid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912132302142_addedlatlngproperty.resx">
+      <DependentUpon>201912132302142_addedlatlngproperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912140204598_updatedforeignkey.resx">
+      <DependentUpon>201912140204598_updatedforeignkey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
