@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201912141511006_changedObserver.Designer.cs">
       <DependentUpon>201912141511006_changedObserver.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912161445379_addedfktoobserver.cs" />
+    <Compile Include="Migrations\201912161445379_addedfktoobserver.Designer.cs">
+      <DependentUpon>201912161445379_addedfktoobserver.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DarkSkyLocation.cs" />
@@ -222,6 +226,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RatingsCheckIn.cs" />
     <Compile Include="Models\Observer.cs" />
+    <Compile Include="MoreLinq\MoreEnumerable.MinBy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="URLVariables.cs" />
@@ -297,6 +302,7 @@
     <Content Include="Views\Observers\Details.cshtml" />
     <Content Include="Views\Observers\Edit.cshtml" />
     <Content Include="Views\Observers\Index.cshtml" />
+    <Content Include="Views\DarkSkyLocations\SeeNearest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -341,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912141511006_changedObserver.resx">
       <DependentUpon>201912141511006_changedObserver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912161445379_addedfktoobserver.resx">
+      <DependentUpon>201912161445379_addedfktoobserver.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

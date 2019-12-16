@@ -76,10 +76,12 @@ namespace DarkSky.Controllers
         {
             if (ModelState.IsValid)
             {
+                string newuserid = User.Identity.GetUserId();
+                observer.ApplicationId = newuserid;
                 await GetLatLong(observer);
                 db.Observers.Add(observer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             return View(observer);
         }

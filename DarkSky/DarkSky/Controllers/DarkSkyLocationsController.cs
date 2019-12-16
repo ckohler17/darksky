@@ -4,10 +4,15 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using DarkSky.Models;
+using Microsoft.AspNet.Identity;
+using MoreLinq;
+using Newtonsoft.Json;
 
 namespace DarkSky.Controllers
 {
@@ -15,6 +20,49 @@ namespace DarkSky.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+
+        public async Task<int> GetDuration(Observer observer, DarkSkyLocation darkSkyLocation)
+        {
+            //Observer observerLoggedIn = db.Observers.Where(o => o.UserId == observer.UserId).FirstOrDefault();
+            string userLatLong = observer.ObserverLatLong;
+            string locationLatLong = darkSkyLocation.LatLong;
+            var key = URLVariables.DirectionsKey;
+            string url = $"https://maps.googleapis.com/maps/api/directions/json?origin={userLatLong}&destination={locationLatLong}&key={key}";
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(url);
+            string jsonresult = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                LocationJsonInfo locationJsonInfo = JsonConvert.DeserializeObject<LocationJsonInfo>(jsonresult);
+                int duration = locationJsonInfo.routes[0].legs[0].duration.value;
+                return duration;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public async Task<Dictionary<DarkSkyLocation, int>> CalculateAllDurations()
+        {
+            string userLoggedInId = User.Identity.GetUserId();
+            Observer observerLoggedIn = db.Observers.Where(o => o.ApplicationId == userLoggedInId).FirstOrDefault();
+            Dictionary<DarkSkyLocation, int> locationsByDuration = new Dictionary<DarkSkyLocation, int>();
+            foreach (DarkSkyLocation location in db.DarkSkyLocations)
+            {              
+                var duration = await GetDuration(observerLoggedIn, location);
+                locationsByDuration.Add(location, duration);           
+            }
+
+            return locationsByDuration;
+        }
+        public async Task<ActionResult> DisplayLowestDurationLocation()
+        {       
+            Dictionary<DarkSkyLocation, int> locationsByDuration = new Dictionary<DarkSkyLocation, int>();
+            locationsByDuration = await CalculateAllDurations();
+            var locationKey = locationsByDuration.MinBy(l => l.Value).Key;        
+            return View("SeeNearest", locationKey );
+        }
         // GET: DarkSkyLocations
         public ActionResult Index()
         {
