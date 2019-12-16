@@ -40,10 +40,8 @@ namespace DarkSky.Controllers
         }
 
         //GET: RatingsCheckIns/Create
-        public ActionResult Create(Observer observer, DarkSkyLocation darkSky)
-        {            
-            var currentUser = db.Observers.Where(o => o.ApplicationId == observer.ApplicationId);
-            var location = db.DarkSkyLocations.Where(l => l.LocationId == darkSky.LocationId);
+        public ActionResult Create()
+        {        
             ViewBag.LocationId = new SelectList(db.DarkSkyLocations, "LocationId", "Name");
             ViewBag.UserId = new SelectList(db.Observers, "UserId", "FirstName");
             return View();
@@ -58,8 +56,10 @@ namespace DarkSky.Controllers
         {
             if (ModelState.IsValid)
             {
-                RatingsCheckIn ratings = new RatingsCheckIn();            
-                ratings = db.RatingsCheckIns.Where(o => o.UserId == observer.UserId).Where(l => l.LocationId == darkSkyLocation.LocationId).FirstOrDefault();
+                RatingsCheckIn ratings = new RatingsCheckIn();
+                ratings.LocationId = darkSkyLocation.LocationId;
+                ratings.UserId = observer.UserId;
+                ratings.Rating = ratingsCheckIn.Rating;
                 db.RatingsCheckIns.Add(ratings);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");

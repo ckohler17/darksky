@@ -31,6 +31,7 @@ namespace DarkSky.Controllers
             }
             DarkSkyLocation darkSkyLocations = db.DarkSkyLocations.Find(id);
             darkSkyLocations.AverageRating = AverageRating(darkSkyLocations);
+            db.SaveChanges();
             if (darkSkyLocations == null)
             {
                 return HttpNotFound();
