@@ -4,10 +4,15 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using DarkSky.Models;
+using GeoCodeJson;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 
 namespace DarkSky.Controllers
 {
@@ -24,6 +29,7 @@ namespace DarkSky.Controllers
         // GET: Observers/Details/5
         public ActionResult Details(int? id)
         {
+        
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -51,9 +57,11 @@ namespace DarkSky.Controllers
         {
             if (ModelState.IsValid)
             {
+                string newuserid = User.Identity.GetUserId();
+                observer.ApplicationId = newuserid; 
                 db.Observers.Add(observer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
 
             return View(observer);
@@ -123,6 +131,31 @@ namespace DarkSky.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public async Task<string> GetGeoCodeCall(int? id) // Change address to lat/lng
+        {
+            //query for user's street address, city, state then convert to y
+            Observer observer = db.Observers.Where(o => o.UserId == id).Single();
+            var Geokey = APIKey.GoogleGeoKey; // Grab Google API key for Geocoding
+            string url = $"https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key={Geokey}";
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(url);
+            string jsonresult = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                GeoCodeObject geoInfo = JsonConvert.DeserializeObject<GeoCodeObject>(jsonresult);
+                var userLatitude = geoInfo.results[0].geometry.location.lat.ToString();
+                var userLongitude = geoInfo.results[0].geometry.location.lng.ToString();
+                StringBuilder latLongString = new StringBuilder();
+                latLongString.Append(userLatitude + "," + userLongitude);
+                string newString = latLongString.ToString();
+                return newString;
+            }
+            else
+            {
+                string oops = "oops";
+                return oops;
+            }
         }
     }
 }

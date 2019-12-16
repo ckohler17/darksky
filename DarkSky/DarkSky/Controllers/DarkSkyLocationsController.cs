@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DarkSky.Models;
+using Microsoft.AspNet.Identity;
 
 namespace DarkSky.Controllers
 {
@@ -122,6 +123,12 @@ namespace DarkSky.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        [HttpPost]
+        public ActionResult Filter(string SelectByState)
+        {                      
+            var mylocation = db.DarkSkyLocations.Where(d => d.State == SelectByState).ToList();
+            return View(mylocation);
         }
     }
 }
