@@ -11,7 +11,7 @@ using Microsoft.AspNet.Identity;
 
 namespace DarkSky.Controllers
 {
-    public class RatingsCheckInsController : Controller
+    public class RatingsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 

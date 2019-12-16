@@ -198,5 +198,10 @@ namespace DarkSky.Controllers
         {
             return View();
         }
+        public ActionResult DisplayMap()
+        {
+            return View();
+        }
     }
+
 }
