@@ -72,11 +72,14 @@ namespace DarkSky.Controllers
         // GET: DarkSkyLocations/Details/5
         public ActionResult Details(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             DarkSkyLocation darkSkyLocations = db.DarkSkyLocations.Find(id);
+            darkSkyLocations.AverageRating = AverageRating(darkSkyLocations);
+            db.SaveChanges();
             if (darkSkyLocations == null)
             {
                 return HttpNotFound();
@@ -172,5 +175,29 @@ namespace DarkSky.Controllers
             }
             base.Dispose(disposing);
         }
+        [HttpPost]
+        public ActionResult Filter(string SelectByState)
+        {
+            var mylocation = db.DarkSkyLocations.Where(d => d.State == SelectByState).ToList();
+            return View(mylocation);
+        }
+        public double AverageRating(DarkSkyLocation darkSkyLocation)
+        {
+            List<RatingsCheckIn> ratingsObj = new List<RatingsCheckIn>();
+            List<string> ratings = new List<string>();
+            List<int> integers = new List<int>();
+            ratingsObj = db.RatingsCheckIns.Where(r => r.Rating > 0).Where(l => l.LocationId == darkSkyLocation.LocationId).ToList();
+            foreach (RatingsCheckIn rating in ratingsObj)
+            {
+                Convert.ToInt32(rating.Rating);
+                integers.Add(rating.Rating);
+            }
+            double averageRating = integers.Average();
+            return averageRating;
+
+
+
+
+        }
     }
-}
+    }

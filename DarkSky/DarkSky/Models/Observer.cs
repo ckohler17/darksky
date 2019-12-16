@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace DarkSky.Models
 {
@@ -24,9 +25,11 @@ namespace DarkSky.Models
         public string State { get; set; }
         [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
+
         public string ObserverLatLong { get; set; }
 
         [ForeignKey("ApplicationUser")]
+        [HiddenInput(DisplayValue = false)]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
     }

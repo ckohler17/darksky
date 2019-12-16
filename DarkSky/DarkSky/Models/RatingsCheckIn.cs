@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace DarkSky.Models
 {
@@ -24,6 +25,7 @@ namespace DarkSky.Models
         public int Rating { get; set; }
 
         [Display(Name = "CheckIn")]
-        public DateTime CheckIn { get; set; }
+        public DateTime? CheckIn { get; set; }
+
     }
 }
