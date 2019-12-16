@@ -27,9 +27,5 @@ namespace DarkSky.Models
         [Display(Name = "CheckIn")]
         public DateTime? CheckIn { get; set; }
 
-        [ForeignKey("ApplicationUser")]
-        [HiddenInput(DisplayValue = false)]
-        public string ApplicationId { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
     }
 }

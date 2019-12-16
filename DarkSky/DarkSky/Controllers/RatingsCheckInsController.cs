@@ -40,8 +40,12 @@ namespace DarkSky.Controllers
         }
 
         //GET: RatingsCheckIns/Create
-        public ActionResult Create()
+        public ActionResult Create(Observer observer, DarkSkyLocation darkSky)
         {            
+            var currentUser = db.Observers.Where(o => o.ApplicationId == observer.ApplicationId);
+            var location = db.DarkSkyLocations.Where(l => l.LocationId == darkSky.LocationId);
+            ViewBag.LocationId = new SelectList(db.DarkSkyLocations, "LocationId", "Name");
+            ViewBag.UserId = new SelectList(db.Observers, "UserId", "FirstName");
             return View();
         }
 
@@ -50,21 +54,22 @@ namespace DarkSky.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "Rating")] RatingsCheckIn ratingsCheckIn, Observer observer, DarkSkyLocation darkSkyLocation)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        RatingsCheckIn ratings = new RatingsCheckIn();
-        //        var currentuser = User.Identity.GetUserId();                
-        //        ratings = db.Observers.Where(o => o.ApplicationId == currentuser && db.DarkSkyLocations.Where(l => l.LocationId == darkSkyLocation.LocationId).FirstOrDefault());
-        //        db.RatingsCheckIns.Add(ratings);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(ratingsCheckIn);
-        //}
+        public ActionResult Create([Bind(Include = "Rating")] RatingsCheckIn ratingsCheckIn, Observer observer, DarkSkyLocation darkSkyLocation)
+        {
+            if (ModelState.IsValid)
+            {
+                RatingsCheckIn ratings = new RatingsCheckIn();            
+                ratings = db.RatingsCheckIns.Where(o => o.UserId == observer.UserId).Where(l => l.LocationId == darkSkyLocation.LocationId).FirstOrDefault();
+                db.RatingsCheckIns.Add(ratings);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+            ViewBag.LocationId = new SelectList(db.DarkSkyLocations, "LocationId", "Name", ratingsCheckIn.LocationId);
+            ViewBag.UserId = new SelectList(db.Observers, "UserId", "FirstName", ratingsCheckIn.UserId);
+            return View(ratingsCheckIn);
+        }
 
-        // GET: RatingsCheckIns/Edit/5
+        //GET: RatingsCheckIns/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)

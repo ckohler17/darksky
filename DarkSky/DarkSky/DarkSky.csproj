@@ -202,6 +202,10 @@
     <Compile Include="Migrations\201912140204598_updatedforeignkey.Designer.cs">
       <DependentUpon>201912140204598_updatedforeignkey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912152231296_removedforeignkeyonratingscheckin.cs" />
+    <Compile Include="Migrations\201912152231296_removedforeignkeyonratingscheckin.Designer.cs">
+      <DependentUpon>201912152231296_removedforeignkeyonratingscheckin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DarkSkyLocation.cs" />
@@ -283,13 +287,12 @@
     <Content Include="Views\Observers\Details.cshtml" />
     <Content Include="Views\Observers\Edit.cshtml" />
     <Content Include="Views\Observers\Index.cshtml" />
-    <Content Include="Views\RatingsCheckIns\Rating.cshtml" />
-    <Content Include="Views\RatingsCheckIns\Create.cshtml" />
     <Content Include="Views\RatingsCheckIns\Delete.cshtml" />
     <Content Include="Views\RatingsCheckIns\Details.cshtml" />
     <Content Include="Views\RatingsCheckIns\Edit.cshtml" />
     <Content Include="Views\RatingsCheckIns\Index.cshtml" />
     <Content Include="Views\DarkSkyLocations\Filter.cshtml" />
+    <Content Include="Views\RatingsCheckIns\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -325,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912140204598_updatedforeignkey.resx">
       <DependentUpon>201912140204598_updatedforeignkey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912152231296_removedforeignkeyonratingscheckin.resx">
+      <DependentUpon>201912152231296_removedforeignkeyonratingscheckin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
