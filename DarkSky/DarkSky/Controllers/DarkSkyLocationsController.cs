@@ -23,7 +23,6 @@ namespace DarkSky.Controllers
 
         public async Task<int> GetDuration(Observer observer, DarkSkyLocation darkSkyLocation)
         {
-            //Observer observerLoggedIn = db.Observers.Where(o => o.UserId == observer.UserId).FirstOrDefault();
             string userLatLong = observer.ObserverLatLong;
             string locationLatLong = darkSkyLocation.LatLong;
             var key = URLVariables.DirectionsKey;
@@ -194,10 +193,10 @@ namespace DarkSky.Controllers
             }
             double averageRating = integers.Average();
             return averageRating;
-
-
-
-
+        }
+        public ActionResult RatingsGraph()
+        {
+            return View();
         }
     }
-    }
+}

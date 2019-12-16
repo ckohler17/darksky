@@ -1,0 +1,23 @@
+﻿@model DarkSky.Models.DarkSkyLocation
+
+@{
+    ViewBag.Title = "RatingsGraph";
+}
+
+<h2>RatingsGraph</h2>
+
+<body>
+    <div>
+        @using DarkSky.Models;
+        @{
+            var db = new ApplicationDbContext();
+            var dbdata = db.DarkSkyLocations.Where(l => l.AverageRating >= 0).ToList();
+            var myChart = new Chart(width: 600, height: 400)
+               .AddTitle("Location Average Rating")
+               .AddSeries(chartType: "column",
+                  xValue: dbdata, xField: "Name",
+                  yValues: dbdata, yFields: "AverageRating")
+               .Write();
+        }
+    </div>
+</body>

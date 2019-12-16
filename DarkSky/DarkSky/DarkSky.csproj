@@ -1,392 +1,3 @@
-
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{74FE59B8-92AA-462E-945F-C4EFA60180DE}</ProjectGuid>
-    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DarkSky</RootNamespace>
-    <AssemblyName>DarkSky</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
-    <IISExpressSSLPort>44329</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
-    <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Abstractions" />
-    <Reference Include="System.Web.Routing" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http">
-    </Reference>
-    <Reference Include="System.Net.Http.WebRequest">
-    </Reference>
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Optimization">
-      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="WebGrease">
-      <Private>True</Private>
-      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
-    </Reference>
-    <Reference Include="Antlr3.Runtime">
-      <Private>True</Private>
-      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Owin">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="Owin">
-      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin">
-      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies">
-      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.0\lib\net451\Microsoft.Owin.Security.Facebook.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies">
-      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Google">
-      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.0\lib\net451\Microsoft.Owin.Security.Google.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Twitter">
-      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.0\lib\net451\Microsoft.Owin.Security.Twitter.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
-      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.0\lib\net451\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="APIKey.cs" />
-    <Compile Include="APITest.cs" />
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DarkSkyLocationsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ObserversController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="LatLongJsonInfo.cs" />
-    <Compile Include="LocationJsonInfo.cs" />
-    <Compile Include="Migrations\201912121340049_initialmigration.cs" />
-    <Compile Include="Migrations\201912121340049_initialmigration.Designer.cs">
-      <DependentUpon>201912121340049_initialmigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912121518476_foreignkeys.cs" />
-    <Compile Include="Migrations\201912121518476_foreignkeys.Designer.cs">
-      <DependentUpon>201912121518476_foreignkeys.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912121657315_modifiedDarkSkyLocationmodel.cs" />
-    <Compile Include="Migrations\201912121657315_modifiedDarkSkyLocationmodel.Designer.cs">
-      <DependentUpon>201912121657315_modifiedDarkSkyLocationmodel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912121659411_seededDB.cs" />
-    <Compile Include="Migrations\201912121659411_seededDB.Designer.cs">
-      <DependentUpon>201912121659411_seededDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912131307230_addedLatLngToDarkSkyModel.cs" />
-    <Compile Include="Migrations\201912131307230_addedLatLngToDarkSkyModel.Designer.cs">
-      <DependentUpon>201912131307230_addedLatLngToDarkSkyModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912131310189_addedDisplayNameLatLong.cs" />
-    <Compile Include="Migrations\201912131310189_addedDisplayNameLatLong.Designer.cs">
-      <DependentUpon>201912131310189_addedDisplayNameLatLong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912131655123_splitUpStreetAddressProperties.cs" />
-    <Compile Include="Migrations\201912131655123_splitUpStreetAddressProperties.Designer.cs">
-      <DependentUpon>201912131655123_splitUpStreetAddressProperties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912132028290_addedlatlong.cs" />
-    <Compile Include="Migrations\201912132028290_addedlatlong.Designer.cs">
-      <DependentUpon>201912132028290_addedlatlong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912141511006_changedObserver.cs" />
-    <Compile Include="Migrations\201912141511006_changedObserver.Designer.cs">
-      <DependentUpon>201912141511006_changedObserver.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912161445379_addedfktoobserver.cs" />
-    <Compile Include="Migrations\201912161445379_addedfktoobserver.Designer.cs">
-      <DependentUpon>201912161445379_addedfktoobserver.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\DarkSkyLocation.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\RatingsCheckIn.cs" />
-    <Compile Include="Models\Observer.cs" />
-    <Compile Include="MoreLinq\MoreEnumerable.MinBy.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
-    <Compile Include="URLVariables.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
-    <Content Include="Views\Users\Delete.cshtml" />
-    <Content Include="Views\Users\Details.cshtml" />
-    <Content Include="Views\Users\Edit.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\DarkSkyLocations\Create.cshtml" />
-    <Content Include="Views\DarkSkyLocations\Delete.cshtml" />
-    <Content Include="Views\DarkSkyLocations\Details.cshtml" />
-    <Content Include="Views\DarkSkyLocations\Edit.cshtml" />
-    <Content Include="Views\DarkSkyLocations\Index.cshtml" />
-    <Content Include="Views\Observers\Create.cshtml" />
-    <Content Include="Views\Observers\Delete.cshtml" />
-    <Content Include="Views\Observers\Details.cshtml" />
-    <Content Include="Views\Observers\Edit.cshtml" />
-    <Content Include="Views\Observers\Index.cshtml" />
-    <Content Include="Views\DarkSkyLocations\SeeNearest.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201912121340049_initialmigration.resx">
-      <DependentUpon>201912121340049_initialmigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912121518476_foreignkeys.resx">
-      <DependentUpon>201912121518476_foreignkeys.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912121657315_modifiedDarkSkyLocationmodel.resx">
-      <DependentUpon>201912121657315_modifiedDarkSkyLocationmodel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912121659411_seededDB.resx">
-      <DependentUpon>201912121659411_seededDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912131307230_addedLatLngToDarkSkyModel.resx">
-      <DependentUpon>201912131307230_addedLatLngToDarkSkyModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912131310189_addedDisplayNameLatLong.resx">
-      <DependentUpon>201912131310189_addedDisplayNameLatLong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912131655123_splitUpStreetAddressProperties.resx">
-      <DependentUpon>201912131655123_splitUpStreetAddressProperties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912132028290_addedlatlong.resx">
-      <DependentUpon>201912132028290_addedlatlong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912141511006_changedObserver.resx">
-      <DependentUpon>201912141511006_changedObserver.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912161445379_addedfktoobserver.resx">
-      <DependentUpon>201912161445379_addedfktoobserver.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-  </PropertyGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
-  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
-    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
-  </Target>
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
-        <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>57516</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44329/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-        </WebProjectProperties>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
@@ -562,11 +173,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ObserversController.cs" />
-    <Compile Include="Controllers\RatingsCheckInsController.cs" />
-    <Compile Include="Geo.cs" />
+    <Compile Include="Controllers\Ratings.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LatLongJsonInfo.cs" />
+    <Compile Include="LocationJsonInfo.cs" />
     <Compile Include="Migrations\201912121340049_initialmigration.cs" />
     <Compile Include="Migrations\201912121340049_initialmigration.Designer.cs">
       <DependentUpon>201912121340049_initialmigration.cs</DependentUpon>
@@ -575,25 +187,41 @@
     <Compile Include="Migrations\201912121518476_foreignkeys.Designer.cs">
       <DependentUpon>201912121518476_foreignkeys.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912132158415_madedatetimenullable.cs" />
-    <Compile Include="Migrations\201912132158415_madedatetimenullable.Designer.cs">
-      <DependentUpon>201912132158415_madedatetimenullable.cs</DependentUpon>
+    <Compile Include="Migrations\201912121657315_modifiedDarkSkyLocationmodel.cs" />
+    <Compile Include="Migrations\201912121657315_modifiedDarkSkyLocationmodel.Designer.cs">
+      <DependentUpon>201912121657315_modifiedDarkSkyLocationmodel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912132231269_addedforeignkeytoapplicatonuserid.cs" />
-    <Compile Include="Migrations\201912132231269_addedforeignkeytoapplicatonuserid.Designer.cs">
-      <DependentUpon>201912132231269_addedforeignkeytoapplicatonuserid.cs</DependentUpon>
+    <Compile Include="Migrations\201912121659411_seededDB.cs" />
+    <Compile Include="Migrations\201912121659411_seededDB.Designer.cs">
+      <DependentUpon>201912121659411_seededDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912132302142_addedlatlngproperty.cs" />
-    <Compile Include="Migrations\201912132302142_addedlatlngproperty.Designer.cs">
-      <DependentUpon>201912132302142_addedlatlngproperty.cs</DependentUpon>
+    <Compile Include="Migrations\201912131307230_addedLatLngToDarkSkyModel.cs" />
+    <Compile Include="Migrations\201912131307230_addedLatLngToDarkSkyModel.Designer.cs">
+      <DependentUpon>201912131307230_addedLatLngToDarkSkyModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912140204598_updatedforeignkey.cs" />
-    <Compile Include="Migrations\201912140204598_updatedforeignkey.Designer.cs">
-      <DependentUpon>201912140204598_updatedforeignkey.cs</DependentUpon>
+    <Compile Include="Migrations\201912131310189_addedDisplayNameLatLong.cs" />
+    <Compile Include="Migrations\201912131310189_addedDisplayNameLatLong.Designer.cs">
+      <DependentUpon>201912131310189_addedDisplayNameLatLong.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912152231296_removedforeignkeyonratingscheckin.cs" />
-    <Compile Include="Migrations\201912152231296_removedforeignkeyonratingscheckin.Designer.cs">
-      <DependentUpon>201912152231296_removedforeignkeyonratingscheckin.cs</DependentUpon>
+    <Compile Include="Migrations\201912131655123_splitUpStreetAddressProperties.cs" />
+    <Compile Include="Migrations\201912131655123_splitUpStreetAddressProperties.Designer.cs">
+      <DependentUpon>201912131655123_splitUpStreetAddressProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912132028290_addedlatlong.cs" />
+    <Compile Include="Migrations\201912132028290_addedlatlong.Designer.cs">
+      <DependentUpon>201912132028290_addedlatlong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912141511006_changedObserver.cs" />
+    <Compile Include="Migrations\201912141511006_changedObserver.Designer.cs">
+      <DependentUpon>201912141511006_changedObserver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912161445379_addedfktoobserver.cs" />
+    <Compile Include="Migrations\201912161445379_addedfktoobserver.Designer.cs">
+      <DependentUpon>201912161445379_addedfktoobserver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912162026256_afterMergeConflicts.cs" />
+    <Compile Include="Migrations\201912162026256_afterMergeConflicts.Designer.cs">
+      <DependentUpon>201912162026256_afterMergeConflicts.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -602,8 +230,10 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RatingsCheckIn.cs" />
     <Compile Include="Models\Observer.cs" />
+    <Compile Include="MoreLinq\MoreEnumerable.MinBy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="URLVariables.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -676,12 +306,13 @@
     <Content Include="Views\Observers\Details.cshtml" />
     <Content Include="Views\Observers\Edit.cshtml" />
     <Content Include="Views\Observers\Index.cshtml" />
-    <Content Include="Views\RatingsCheckIns\Delete.cshtml" />
-    <Content Include="Views\RatingsCheckIns\Details.cshtml" />
-    <Content Include="Views\RatingsCheckIns\Edit.cshtml" />
-    <Content Include="Views\RatingsCheckIns\Index.cshtml" />
-    <Content Include="Views\DarkSkyLocations\Filter.cshtml" />
-    <Content Include="Views\RatingsCheckIns\Create.cshtml" />
+    <Content Include="Views\DarkSkyLocations\SeeNearest.cshtml" />
+    <Content Include="Views\Ratings\Create.cshtml" />
+    <Content Include="Views\Ratings\Delete.cshtml" />
+    <Content Include="Views\Ratings\Details.cshtml" />
+    <Content Include="Views\Ratings\Edit.cshtml" />
+    <Content Include="Views\Ratings\Index.cshtml" />
+    <Content Include="Views\DarkSkyLocations\RatingsGraph.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -706,20 +337,32 @@
     <EmbeddedResource Include="Migrations\201912121518476_foreignkeys.resx">
       <DependentUpon>201912121518476_foreignkeys.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912132158415_madedatetimenullable.resx">
-      <DependentUpon>201912132158415_madedatetimenullable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912121657315_modifiedDarkSkyLocationmodel.resx">
+      <DependentUpon>201912121657315_modifiedDarkSkyLocationmodel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912132231269_addedforeignkeytoapplicatonuserid.resx">
-      <DependentUpon>201912132231269_addedforeignkeytoapplicatonuserid.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912121659411_seededDB.resx">
+      <DependentUpon>201912121659411_seededDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912132302142_addedlatlngproperty.resx">
-      <DependentUpon>201912132302142_addedlatlngproperty.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912131307230_addedLatLngToDarkSkyModel.resx">
+      <DependentUpon>201912131307230_addedLatLngToDarkSkyModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912140204598_updatedforeignkey.resx">
-      <DependentUpon>201912140204598_updatedforeignkey.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912131310189_addedDisplayNameLatLong.resx">
+      <DependentUpon>201912131310189_addedDisplayNameLatLong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912152231296_removedforeignkeyonratingscheckin.resx">
-      <DependentUpon>201912152231296_removedforeignkeyonratingscheckin.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912131655123_splitUpStreetAddressProperties.resx">
+      <DependentUpon>201912131655123_splitUpStreetAddressProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912132028290_addedlatlong.resx">
+      <DependentUpon>201912132028290_addedlatlong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912141511006_changedObserver.resx">
+      <DependentUpon>201912141511006_changedObserver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912161445379_addedfktoobserver.resx">
+      <DependentUpon>201912161445379_addedfktoobserver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912162026256_afterMergeConflicts.resx">
+      <DependentUpon>201912162026256_afterMergeConflicts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
