@@ -8,62 +8,158 @@
 <h4>DarkSkyLocations</h4>
 <hr />
 
-    <h2>Directions</h2>
+<h2>Directions</h2>
+<style>
+    #right-panel {
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+    }
 
+    #right-panel select, #right-panel input {
+        font-size: 15px;
+    }
 
-    <h4>Dark Sky Location</h4>
+    #right-panel select {
+        width: 100%;
+    }
 
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    #right-panel i {
+        font-size: 12px;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StreetAddress)
-        </dt>
+    #direction-map {
+        float: left;
+        width: 100%;
+        height: 300px;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.StreetAddress)
-        </dd>
+    #right-panel {
+        float: right;
+        width: 100%;
+        height: 100%;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
+    .panel {
+        height: 100%;
+        overflow: auto;
+    }
+</style>
 
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
+<div class="col-md-4">
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Name)
+    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.StreetAddress)
+    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
+    <dd>
+        @Html.DisplayFor(model => model.StreetAddress)
+    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ZipCode)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.AverageRating)
-        </dt>
+    <dt>
+        @Html.DisplayNameFor(model => model.City)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AverageRating)
-        </dd>
+    <dd>
+        @Html.DisplayFor(model => model.City)
+    </dd>
 
-    </dl>
+    <dt>
+        @Html.DisplayNameFor(model => model.State)
+    </dt>
 
+    <dd>
+        @Html.DisplayFor(model => model.State)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.ZipCode)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.ZipCode)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.AverageRating)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.AverageRating)
+    </dd>
+
+</dl>
+
+</div>
+<div class="col-md-8">
+    <div class="col-sm-5">
+        <div id="direction-map"></div>
+    </div>
+    <div class="col-sm-7">
+        <div id="right-panel">
+            <p>Total Distance: <span id="total"></span></p>
+        </div>
+    </div>
+</div>
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>
+<script>
+    function directionMap() {
+        var map = new google.maps.Map(document.getElementById('direction-map'), {
+            zoom: 4,
+            center: { lat: -24.345, lng: 134.46 }  // Australia.
+        });
+        var directionsService = new google.maps.DirectionsService;
+        var directionsRenderer = new google.maps.DirectionsRenderer({
+            draggable: true,
+            map: map,
+            panel: document.getElementById('right-panel')
+        });
+        directionsRenderer.addListener('directions_changed', function () {
+            computeTotalDistance(directionsRenderer.getDirections());
+        });
+        displayRoute('Perth, WA', 'Sydney, NSW', directionsService,
+            directionsRenderer);
+    }
+    function displayRoute(origin, destination, service, display) {
+        service.route({
+            origin: origin,
+            destination: destination,
+            waypoints: [{ location: 'Adelaide, SA' }, { location: 'Broken Hill, NSW' }],
+            travelMode: 'DRIVING',
+            avoidTolls: true
+        }, function (response, status) {
+            if (status === 'OK') {
+                display.setDirections(response);
+            } else {
+                alert('Could not display directions due to: ' + status);
+            }
+        });
+    }
+    function computeTotalDistance(result) {
+        var total = 0;
+        var myroute = result.routes[0];
+        for (var i = 0; i < myroute.legs.length; i++) {
+            total += myroute.legs[i].distance.value;
+        }
+        total = total / 1000;
+        document.getElementById('total').innerHTML = total + ' km';
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=@APIKey.GoogleMapsKey&callback=directionMap">
+</script>
