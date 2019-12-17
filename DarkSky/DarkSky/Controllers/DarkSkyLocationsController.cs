@@ -60,7 +60,7 @@ namespace DarkSky.Controllers
             Dictionary<DarkSkyLocation, int> locationsByDuration = new Dictionary<DarkSkyLocation, int>();
             locationsByDuration = await CalculateAllDurations();
             var locationKey = locationsByDuration.MinBy(l => l.Value).Key;        
-            return View("SeeNearest", locationKey );
+            return View("SeeNearest", locationKey);
         }
         // GET: DarkSkyLocations
         public ActionResult Index()

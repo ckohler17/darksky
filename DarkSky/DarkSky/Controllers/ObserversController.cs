@@ -47,19 +47,19 @@ namespace DarkSky.Controllers
         }
 
         // GET: Observers/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details()
         {
-        
-            if (id == null)
+            string userLoggedIn = User.Identity.GetUserId();
+            Observer personLoggedIn = db.Observers.Where(u => u.ApplicationId == userLoggedIn).FirstOrDefault();
+            if (personLoggedIn == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Observer observer = db.Observers.Find(id);
-            if (observer == null)
+            if (personLoggedIn == null)
             {
                 return HttpNotFound();
             }
-            return View(observer);
+            return View(personLoggedIn);
         }
 
         // GET: Observers/Create
@@ -87,18 +87,20 @@ namespace DarkSky.Controllers
             return RedirectToAction("Index", "Home");
         }
         // GET: Observers/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit()
         {
-            if (id == null)
+            string userLoggedIn = User.Identity.GetUserId();
+            Observer personLoggedIn = db.Observers.Where(u => u.ApplicationId == userLoggedIn).FirstOrDefault();
+            if (personLoggedIn == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Observer observer = db.Observers.Find(id);
-            if (observer == null)
+            //Observer observer = db.Observers.Find(id);
+            if (personLoggedIn == null)
             {
                 return HttpNotFound();
             }
-            return View(observer);
+            return View(personLoggedIn);
         }
 
         // POST: Observers/Edit/5
@@ -108,11 +110,12 @@ namespace DarkSky.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Observer observer)
         {
+
             if (ModelState.IsValid)
             {
                 db.Entry(observer).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Observers");
             }
             return View(observer);
         }
