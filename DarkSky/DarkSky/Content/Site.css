@@ -1,7 +1,17 @@
-﻿body {
+﻿@font-face {
+    font-family: "nasalization";
+    src: url("css/fonts/nasalization-rg.otf");
+}
+body {
     padding-top: 50px;
     padding-bottom: 20px;
     background-color: #c3c6d4;
+}
+
+h1, h2, h3, h4, h5, .navbar {
+    font-family: 'nasalization', Arial, sans-serif;
+    font-weight: 800;
+    font-style: normal;
 }
 
 /* Set padding to keep content from hitting the edges */
